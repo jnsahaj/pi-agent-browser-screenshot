@@ -1,0 +1,31 @@
+{
+  "name": "pi-agent-browser-screenshot",
+  "version": "0.1.0",
+  "description": "pi extension that inlines agent-browser screenshots in the TUI — including inside tmux, via kitty graphics Unicode placeholders",
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:jnsahaj/pi-agent-browser-screenshot",
+  "keywords": [
+    "pi",
+    "pi-extension",
+    "agent-browser",
+    "screenshot",
+    "tmux",
+    "kitty-graphics"
+  ],
+  "pi": {
+    "extensions": ["./src/index.ts"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "@earendil-works/pi-tui": {
+      "optional": true
+    }
+  }
+}
