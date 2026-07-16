@@ -4,6 +4,8 @@ A [pi](https://github.com/badlogic/pi-mono) extension that renders [agent-browse
 
 When the agent runs an `agent-browser … screenshot …` command, the extension picks up the image file it produced and displays it right in the transcript. Screenshots are TUI-only: they are persisted with the session but never sent to the model.
 
+![agent-browser screenshot rendered inline in the pi TUI inside tmux](docs/demo.png)
+
 ## Install
 
 ```sh
