@@ -144,12 +144,15 @@ let allowsPassthrough: boolean | undefined;
 function tmuxAllowsPassthrough(): boolean {
   if (allowsPassthrough === undefined) {
     try {
-      const output = execFileSync("tmux", ["show", "-Ap", "allow-passthrough"], {
+      // -v prints just the value; without it, inherited options render as
+      // "allow-passthrough* on" (note the asterisk).
+      const output = execFileSync("tmux", ["show", "-Apv", "allow-passthrough"], {
         encoding: "utf8",
         timeout: 1000,
         stdio: ["ignore", "pipe", "ignore"],
       });
-      allowsPassthrough = /\ballow-passthrough\s+(on|all)\b/.test(output);
+      const value = output.trim();
+      allowsPassthrough = value === "on" || value === "all";
     } catch {
       allowsPassthrough = false;
     }
